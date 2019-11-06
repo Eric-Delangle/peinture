@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block steelsheets %}
+    
+{% endblock %}
+{% block javascripts %}
+    
+{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+<div class="container">
+    <h1 class="titre center">Création de votre compte:</h1>
+    <br>
+        {{ form_start(form, {'attr': {'class': 'placeho'}})}}
+         {{ form_row(form.firstName, {'attr': {'placeholder': "Votre prénom"}})}} 
+         {{ form_row(form.lastName, {'attr': {'placeholder': "Votre nom"}})}} 
+         {{ form_row(form.location, {'attr': {'placeholder': "Votre ville"}})}}
+         {{ form_row(form.email, {'attr': {'placeholder': "Votre email"}})}}   
+         {{ form_row(form.password, {'attr': {'placeholder': "Votre mot de passe"}})}}     
+      
+    
+        <br>
+        <button type="submit" class="btn btn-success">Valider</button>
+        {{ form_end(form)}}
+</div>
+
+{% endblock %}

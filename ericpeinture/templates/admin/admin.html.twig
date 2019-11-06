@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eric Delangle peinture{% endblock %}
+
+{% block body %}
+<div class="container">
+        <a class="nav-link" id="deconnexion" href="{{ path('home') }}" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i>Accueil</a>
+    <p>Gestion du site.</p>
+    <p><a class="nav-link" id="deconnexion" href="{{ path('picture_index') }}" tabindex="-1" aria-disabled="true"><i class="fas fa-sign-out-alt"></i>Gestion des photos</a></p>
+</div>
+
+{% endblock %}

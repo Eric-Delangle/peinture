@@ -36,10 +36,11 @@ class PictureController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $picture->setCreatedAt(new \DateTime());
             $entityManager->persist($picture);
             $entityManager->flush();
 
-            return $this->redirectToRoute('picture_index');
+            return $this->redirectToRoute('galery_index');
         }
 
         return $this->render('picture/new.html.twig', [

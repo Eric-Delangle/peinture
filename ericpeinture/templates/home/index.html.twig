@@ -1,20 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Eric Delangle peinture{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/pol/Desktop/sitepersopeinture/ericpeinture/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/pol/Desktop/sitepersopeinture/ericpeinture/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+<section id="divise"> 
+<div class="container">
+  <br>
+    <h1 class="center police"><span class="blanc">Bonjour et bienvenue</span>&nbsp;&nbsp;&nbsp;dans mon atelier.</h1>
+    <!-- CAROUSEL-->
+    <div id="carouselExampleIndicators" class="carousel slide images" data-ride="carousel">
+           
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100 images" src="images/products/lapin.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 images" src="images/products/globe.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 images" src="images/products/dakar.jpg" alt="Third slide">
+              </div>
+            </div>
+            
+          </div>
+    
 </div>
+<p class="center parag"><span class="blanc">&nbsp;&nbsp;&nbsp;&nbsp;Ce site est une ébauche, il est en</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perpetuelle évolution entre mes differents projets.</p>
+</section>
+<section id="galeries" class="blanc center">
+  <br>
+  <h2 class="police">Les toiles</h2>
+    <div class="galerie">
+        <img class="images" src="images/products/dakar.jpg" alt="dakar">
+        <img class="images" src="images/products/globe.jpg" alt="globe">
+        <img class="images" src="images/products/lapin.jpg" alt="lapin">
+        <img class="images" src="images/products/ptit encas.jpg" alt="encas">
+        <img class="images" src="images/products/rabazou.jpg" alt="rabazou">
+        <img class="images" src="images/products/souris peint.jpg" alt="rat">
+        <img class="images" src="images/products/volet1.jpg" alt="volet">
+        <img class="images" src="images/products/disque.jpg" alt="disque">
+    </div>
+</section> 
+<section id="meubles" class="black center">
+  <br>
+    <h2 class="police">Les meubles</h2>
+    <div class="galerie">
+        <img class="images" src="images/products/bistro de paris.jpg" alt="bistro">
+        <img class="images" src="images/products/blues club.jpg" alt="blues">
+        <img class="images" src="images/products/boita a barbe.jpg" alt="barbe">
+        <img class="images" src="images/products/buffet bonne franquette.jpg" alt="franquette">
+        <img class="images" src="images/products/buffet Harley.jpg" alt="harley">
+        <img class="images" src="images/products/coffre.jpg" alt="coffre">
+        <img class="images" src="images/products/confiturier.jpg" alt="confiturier">
+        <img class="images" src="images/products/lutins et cordonnier 2.jpg" alt="lutins">
+        <img class="images" src="images/products/pin up.jpg" alt="vintage">
+    </div>
+</section> 
+<section id="footer" class="blanc center">
+  <br>
+    <h2 class="police">Contact</h2>
+    <p>Vous pouvez me joindre par le biais de mon site eric delangle développeur.</p>
+    <a href="http://www.ericdelangle.fr" class="blanc">Ici</a>
+</section> 
+
 {% endblock %}

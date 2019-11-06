@@ -28,9 +28,15 @@ class Category
      */
     private $pictures;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Galery", mappedBy="category")
+     */
+    private $galeries;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
+        $this->galeries = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,6 +79,41 @@ class Category
         if ($this->pictures->contains($picture)) {
             $this->pictures->removeElement($picture);
             $picture->removeMedium($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString() {
+        return (string) $this->getName();
+    }
+
+    /**
+     * @return Collection|Galery[]
+     */
+    public function getGaleries(): Collection
+    {
+        return $this->galeries;
+    }
+
+    public function addGalery(Galery $galery): self
+    {
+        if (!$this->galeries->contains($galery)) {
+            $this->galeries[] = $galery;
+            $galery->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGalery(Galery $galery): self
+    {
+        if ($this->galeries->contains($galery)) {
+            $this->galeries->removeElement($galery);
+            // set the owning side to null (unless already changed)
+            if ($galery->getCategory() === $this) {
+                $galery->setCategory(null);
+            }
         }
 
         return $this;

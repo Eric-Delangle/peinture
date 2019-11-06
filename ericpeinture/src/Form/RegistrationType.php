@@ -2,30 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Picture;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
-class PictureType extends AbstractType
+class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('medium')
-            ->add('imageFile', VichFileType::class, [
-                'required' =>false,
-                'label' =>'Votre image',
-            ])
+            ->add('firstName')
+            ->add('lastName')
+            ->add('location')
+            ->add('email')
+            ->add('password', PasswordType::class)  
+            ->add('password_verify', PasswordType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Picture::class,
+            'data_class' => User::class,
         ]);
     }
 }

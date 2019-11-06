@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galery{% endblock %}
+
+{% block body %}
+<div class="container center">
+    <h1>Galery</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ galery.name }}</td>
+            </tr>
+            <tr>
+                <th>Oeuvre(s)</th>
+                {% for art in galery.picture %}
+                    <p><img src=" {{ asset(['images/products/', art.picture]|join) }} " class="images" ></p>   
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('galery_index') }}">back to list</a>
+
+    <a href="{{ path('galery_edit', {'id': galery.id}) }}">edit</a>
+
+    {{ include('galery/_delete_form.html.twig') }}
+</div>
+{% endblock %}

@@ -2,30 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Picture;
+use App\Entity\Galery;
 use Symfony\Component\Form\AbstractType;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PictureType extends AbstractType
+class GaleryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('medium')
-            ->add('imageFile', VichFileType::class, [
-                'required' =>false,
-                'label' =>'Votre image',
-            ])
+            ->add('category')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Picture::class,
+            'data_class' => Galery::class,
         ]);
     }
 }

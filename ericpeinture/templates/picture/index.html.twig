@@ -3,35 +3,35 @@
 {% block title %}Picture index{% endblock %}
 
 {% block body %}
-    <h1>Picture index</h1>
-
+<div class="container white">
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>CreatedAt</th>
+              
+                <th>Nom</th>
+                <th>Date de création</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for picture in pictures %}
             <tr>
-                <td>{{ picture.id }}</td>
+                
                 <td>{{ picture.name }}</td>
                 <td>{{ picture.createdAt ? picture.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('picture_show', {'id': picture.id}) }}">show</a>
-                    <a href="{{ path('picture_edit', {'id': picture.id}) }}">edit</a>
+                    <a href="{{ path('picture_show', {'id': picture.id}) }}" class="btn btn-xs btn-success">Voir</a>
+                    <a href="{{ path('picture_edit', {'id': picture.id}) }}" class="btn btn-xs btn-primary">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Pas encore de photo</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('picture_new') }}">Create new</a>
+    <a href="{{ path('picture_new') }}" class="btn btn-success">Nouvelle photo</a>
+</div>
 {% endblock %}

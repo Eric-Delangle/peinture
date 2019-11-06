@@ -2,11 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <!-- CSS BOOTSTRAP-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- CSS PERSO -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}"/>
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+            {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <section id="nav">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li> <a href="#divise" class="black">Accueil</a> </li>
+                    <li> <a href="#galeries" class="black">Les toiles</a> </li>
+                    <li> <a href="#meubles" class="black">Les meubles</a> </li>
+                    <li> <a href="#footer" class="black">Contact</a> </li>
+                </ul>
+                
+                </div>
+            </nav>
+        </section>
+            
+            
+            {% block body %} {% endblock %}
         {% block javascripts %}{% endblock %}
-    </body>
+        {% if app.user %}
+            <script>document.getElementById('connexion').style.display ='none';</script>
+            <script>document.getElementById('deconnexion').style.display ='block';</script>
+            <script>document.getElementById('gestion').style.display ='block';</script>
+        {% else %}
+            <script>document.getElementById('connexion').style.display ='block';</script>
+            <script>document.getElementById('deconnexion').style.display ='none';</script>
+            <script>document.getElementById('gestion').style.display ='none';</script>
+ 
+        {% endif %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>$('.carousel').carousel()</script>
+</body>
 </html>
